@@ -1,40 +1,56 @@
-// Main Variables
+const loginBtn = document.querySelector(".login-btn")
+const choicesImg = document.querySelectorAll(".choices-img")
+const playerChoice = document.querySelector("#player-choice")
+const imageClass = document.querySelector(".image")
+const optionBtn = document.querySelector(".option-btn")
+const optionBtns = document.querySelectorAll(".content .option-btn")
+const robotChoiceValue = document.querySelector("#robot-choice")
+let winnerValue = document.querySelector("#winner")
+console.log(optionBtns)
 
-// game function 
-
-function game() {
-    // Main variables 
-
-    const rock = "rock"
-    const paper = "paper"
-    const scrsisors = "scrissors"
-
-    // Player choice 
-
-    let playerAnswer = prompt("Rock, paper or scrissors:")    
-    console.log(playerAnswer)
-
-    // Robot Deck and choice
-
-    RobotDeck = ["rock","paper","scrissors"]
-    let i = Math.floor(Math.random() * 3)
-    let robotAnswer = RobotDeck[i]
-    console.log(robotAnswer)
-    
-    // See who is the winner
-
-    let winner
-    if (playerAnswer === "rock") {
-        winner = robotAnswer === "paper" ? "Robot wins" : robotAnswer === "scrissors" ? "You win" : "draw"
-        console.log(winner)
-    } else if (playerAnswer === "paper") {
-        winner = robotAnswer === "rock" ? "You win" : robotAnswer === "scrissors" ? "Robot wins" : "draw"
-        console.log(winner)
-    } else if (playerAnswer === "scrissors") {
-        winner = robotAnswer === "rock" ? "Robot wins" : robotAnswer === "paper" ? "You win" : "draw"
-        console.log(winner)
-    } 
-}
+RobotDeck = ["rock","paper","scrissors"]
 
 
-game()
+
+// See who is the winner
+
+optionBtns.forEach(item => {
+    item.addEventListener('click', () => {
+        let winner
+        
+        if (item.value === "rock") {
+
+            let i = Math.floor(Math.random() * 3)
+            let robotChoice = RobotDeck[i]
+
+            playerChoice.textContent = "Player: " + item.value
+            robotChoiceValue.textContent = "Robot: " + RobotDeck[i]
+
+            winner = robotChoice === "paper" ? "Robot wins" : robotChoice === "scrissors" ? "You win" : "draw"
+            winnerValue.textContent = winner
+            
+        } else if (item.value === "paper") {
+
+            let i = Math.floor(Math.random() * 3)
+            let robotChoice = RobotDeck[i]
+            
+            playerChoice.textContent = "Player: " + item.value
+            robotChoiceValue.textContent = "Robot: " + RobotDeck[i]
+
+            winner = robotChoice === "rock" ? "You win" : robotChoice === "scrissors" ? "Robot wins" : "draw"
+            winnerValue.textContent = winner
+
+        } else if (item.value === "scrissors") {
+
+            let i = Math.floor(Math.random() * 3)
+            let robotChoice = RobotDeck[i]
+
+            playerChoice.textContent = "Player: " + item.value
+            robotChoiceValue.textContent = "Robot: " + RobotDeck[i]
+
+            winner = robotChoice === "rock" ? "Robot wins" : robotChoice === "paper" ? "You win" : "draw"
+            winnerValue.textContent = winner
+            
+        } 
+    })
+} )

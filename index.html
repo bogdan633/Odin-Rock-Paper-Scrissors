@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scrissors</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <h1>Rock-Paper-Scrissors in the console</h1>
+    <div class="container">
+        <div class="navbar">
+            <h1 class="navbar-logo">Odin Project</h1>
+            <ul class="links">
+                <li class="link"><a href="#">Play</a></li>
+                <li class="link"><a href="#">About me</a></li>
+                <li class="link"><a href="#">Contact</a></li>
+            </ul>
+            <button class="login-btn">Register</button>
+        </div>
+        <main>
+            <section class="choices-img">
+                <div class="content">
+                    <img src="./images/paper.jpg" alt="" class="paper image">
+                    <button class="option-btn" value="paper">paper</button>
+                </div>
+                <div class="content">
+                    <img src="./images/rock.png" alt="" class="rock image">
+                    <button class="option-btn" value="rock">rock</button>
+                </div>
+                <div class="content">
+                    <img src="./images/scrissors.png" alt="" class="scrissors image">
+                    <button class="option-btn" value="scrissors">scrissors</button>
+                </div>
+            </section>
+            <div class="play">
+                <button class="play-btn login-btn">Play</button>
+            </div>
+            <h1 id="player-choice"></h1>
+            <h1 id="robot-choice"></h1>
+            <h2 id="winner" style="text-align:center"></h2>
+        </main>
+    </div>
 </body>
-    <script src="./index.js"></script>
+<script src="./index.js"></script>
 </html>
